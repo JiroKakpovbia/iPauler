@@ -2,6 +2,6 @@ import pyttsx3
 
 engine = pyttsx3.init()
 
-engine.say("every day bro")
+engine.say("jake paul is number one")
 
 engine.runAndWait()
