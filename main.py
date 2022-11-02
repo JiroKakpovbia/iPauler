@@ -1,8 +1,9 @@
 import pyttsx3
 import speech_recognition as sr
 import vlc
+import time
 
-p = vlc.MediaPlayer
+p = vlc.MediaPlayer("/everydaybro.mp4/")
 r = sr.Recognizer
 
 engine = pyttsx3.init()
@@ -10,3 +11,7 @@ engine = pyttsx3.init()
 engine.say("jake paul is number one")
 
 engine.runAndWait()
+
+p.play()
+
+time.sleep(60)
