@@ -1,4 +1,4 @@
-pyttsx3==2.90
+pythpyttsx3==2.90
 SpeechRecognition==3.8.1
 python-vlc==3.0.16120
 pygame==2.1.2
