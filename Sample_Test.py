@@ -9,6 +9,7 @@ import transformers
 
 import os
 import time
+import random
 
 # for data
 import os
@@ -87,10 +88,27 @@ if __name__ == "__main__":
                     res = "Now in mood three."
                     ai.mood = 3
 
+                ##flip a coin
+                elif "flip a coin" in ai.text:
+                    if random.randrange(2) == 0:
+                        res = "Heads"
+                    else:
+                        res = "Tails"
+                    
+                ## play rock paper scissors
+                elif "rock paper scissors" in ai.text:
+                    value = random.randrange(3)
+                    if value == 0:
+                        res = "Rock, Paper, Scissors. Rock!"
+                    elif value == 1:
+                        res = "Rock, Paper, Scissors. Paper!"
+                    else:
+                        res = "Rock, Paper, Scissors. Scissors!"
+                
                 ## action time
                 elif "time" in ai.text:
                     res = ai.action_time()
-
+                  
                 ## what day
                 elif "what day" in ai.text:
                     res = "It's every day bro!"
