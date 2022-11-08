@@ -2,3 +2,7 @@ pythpyttsx3==2.90
 SpeechRecognition==3.8.1
 python-vlc==3.0.16120
 pygame==2.1.2
+gTTS==2.2.3
+transformers==4.11.3
+tensorflow==2.6.0
+pyaudio==0.2.12

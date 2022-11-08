@@ -16,6 +16,7 @@ scrn = pygame.display.set_mode((X, Y))
 img = pygame.image.load("boxer.JPG").convert()
 
 scrn.blit(img, (0, 0))
+
 pygame.display.flip()
 
 engine = pyttsx3.init()
