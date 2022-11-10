@@ -1,8 +1,8 @@
 import os
-import datetime
 import random
 import datetime
 import numpy as np
+import time
 import vlc
 
 def respond(mood, input):
