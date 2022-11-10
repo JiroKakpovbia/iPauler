@@ -9,7 +9,7 @@ import speech_recognition as sr
 from gtts import gTTS
 
 # for language model
-import transformers
+#import transformers
 from playsound import playsound
 import pyaudio
 import wave
@@ -32,7 +32,7 @@ class ChatBot():
 
     def speech_to_text(self):
         recognizer = sr.Recognizer()
-        with sr.Microphone() as mic, sr.AudioFile("input.wav") as source:
+        with sr.Microphone() as mic, sr.AudioFile("/input.wav") as source:
             print("Listening...")
             audio = recognizer.record(source) 
             self.text="ERROR"
