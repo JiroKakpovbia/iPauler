@@ -71,8 +71,8 @@ class ChatBot():
 if __name__ == "__main__":
     
     ai = ChatBot(name="Jake Paul")
-    #nlp = transformers.pipeline("conversational", model="microsoft/DialoGPT-medium")
-    #os.environ["TOKENIZERS_PARALLELISM"] = "true"
+    nlp = transformers.pipeline("conversational", model="microsoft/DialoGPT-medium")
+    os.environ["TOKENIZERS_PARALLELISM"] = "true"
     
     ex=True
     while ex:
