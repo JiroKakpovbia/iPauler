@@ -8,7 +8,7 @@ from gtts import gTTS
 # for language model
 #import transformers
 from playsound import playsound
-import pyaudio
+
 import wave
 import threading
 import time
@@ -84,7 +84,7 @@ if __name__ == "__main__":
             ai.speech_to_text()
 
             result = responses.respond(ai.mood, ai.text)
-
+            os.remove("input.wav")
             if result == 0:
                 ai.text_to_speech(np.random.choice(["Tata","Have a good day","Bye","Goodbye","Hope to meet soon","peace out!"]))
                 ex = False
