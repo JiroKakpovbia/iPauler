@@ -1,9 +1,6 @@
 from subprocess import call
 import speech_recognition as sr
-#import serial
 #import RPi.GPIO as GPIO    
-# for speech-to-text
-import speech_recognition as sr
 
 # for text-to-speech
 from gtts import gTTS
@@ -13,13 +10,15 @@ from gtts import gTTS
 from playsound import playsound
 import pyaudio
 import wave
-import os
+
 import time
 
 # for data
 import os
 import datetime
 import numpy as np
+
+import recording
 
 
 # Building the AI
@@ -32,7 +31,7 @@ class ChatBot():
 
     def speech_to_text(self):
         recognizer = sr.Recognizer()
-        with sr.Microphone() as mic, sr.AudioFile("/input.wav") as source:
+        with sr.Microphone() as mic, sr.AudioFile("input.wav") as source:
             print("Listening...")
             audio = recognizer.record(source) 
             self.text="ERROR"
@@ -76,7 +75,10 @@ if __name__ == "__main__":
     
     ex=True
     while ex:
-        ai.speech_to_text()
+        activation = input("Talk to jake? y/n: ")
+        if activation == "y":
+            recording.record
+            ai.speech_to_text()
 
  
 
