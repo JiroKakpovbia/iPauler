@@ -85,7 +85,7 @@ def respond(mood, input):
 
     try:
         return res
-    except NameError:
-        res ="I agree"
+    except:
+        return "go away"
 
-    return res
+    
