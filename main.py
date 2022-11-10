@@ -86,24 +86,24 @@ if __name__ == "__main__":
 
     while ex:
 
-        text = ai.listen()
+        #text = ai.listen()
 
-        if text.count(WAKE) > 0:       
+        #if text.count(WAKE) > 0:       
         
-            activation = input("Talk to jake? y/n: ")
-            if activation == "y":
-                thread = threading.Thread(target=recording.record)
-                thread.start()
-                thread.join()
-                ai.speech_to_text()
+        activation = input("Talk to jake? y/n: ")
+        if activation == "y":
+            thread = threading.Thread(target=recording.record)
+            thread.start()
+            thread.join()
+            ai.speech_to_text()
 
-                result = responses.respond(ai.mood, ai.text)
-                os.remove("input.wav")
-                if result == 0:
-                    ai.text_to_speech(np.random.choice(["Tata","Have a good day","Bye","Goodbye","Hope to meet soon","peace out!"]))
-                    ex = False
-                    break
-                ai.text_to_speech(result)
+            result = responses.respond(ai.mood, ai.text)
+            os.remove("input.wav")
+            if result == 0:
+                ai.text_to_speech(np.random.choice(["Tata","Have a good day","Bye","Goodbye","Hope to meet soon","peace out!"]))
+                ex = False
+                break
+            ai.text_to_speech(result)
 
  
 
