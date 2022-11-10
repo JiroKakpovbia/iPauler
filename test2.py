@@ -77,8 +77,8 @@ if __name__ == "__main__":
     while ex:
         activation = input("Talk to jake? y/n: ")
         if activation == "y":
-            recording.record
-            ai.speech_to_text()
+            if recording.record:
+                ai.speech_to_text()
 
  
 
