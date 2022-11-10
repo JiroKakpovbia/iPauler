@@ -10,7 +10,7 @@ from gtts import gTTS
 from playsound import playsound
 import pyaudio
 import wave
-
+import threading
 import time
 
 # for data
@@ -19,6 +19,7 @@ import datetime
 import numpy as np
 
 import recording
+import responses
 
 
 # Building the AI
@@ -77,9 +78,18 @@ if __name__ == "__main__":
     while ex:
         activation = input("Talk to jake? y/n: ")
         if activation == "y":
-            recording.record
-            os.wait()
+            thread = threading.Thread(target=recording.record)
+            thread.start()
+            thread.join()
             ai.speech_to_text()
+
+            result = responses.respond(ai.mood, ai.text)
+
+            if result == 0:
+                ai.text_to_speech(np.random.choice(["Tata","Have a good day","Bye","Goodbye","Hope to meet soon","peace out!"]))
+                ex = False
+                break
+            ai.text_to_speech(result)
 
  
 
