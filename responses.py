@@ -81,13 +81,11 @@ def respond(mood, input):
 
     if any(i in input for i in ["exit","close"]):
         return 0
-
         ex=False
 
-        ## conversation
-    else:   
-        chat = nlp(transformers.Conversation(ai.text), pad_token_id=50256)
-        res = str(chat)
-        res = res[res.find("bot >> ")+6:].strip()
+    try:
+        return res
+    except NameError:
+        res ="I agree"
 
     return res
