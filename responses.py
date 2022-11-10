@@ -59,7 +59,7 @@ def respond(mood, input):
             res = "Six and O baby. Hear that? Six and O."
 
         ## best YouTube boxer
-        elif "best YouTube boxer" in input:
+        elif "best boxer" in input:
             res = "Realy? Really? It's me you dumbass. Don't ask me that again."
 
         ## your name
@@ -76,8 +76,7 @@ def respond(mood, input):
 
         if any(i in input for i in ["exit","close"]):
             return 0
-            
-            
+
             ex=False
 
             ## conversation
@@ -85,8 +84,5 @@ def respond(mood, input):
             #chat = nlp(transformers.Conversation(ai.text), pad_token_id=50256)
             #res = str(chat)
             #res = res[res.find("bot >> ")+6:].strip()
-        else:
-
-            res="So true bro."
 
         return res
