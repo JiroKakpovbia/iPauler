@@ -101,7 +101,9 @@ if __name__ == "__main__":
 
         
 
-        if ai.awake:       
+        if ai.awake:     
+
+            ai.awake = False  
         
             thread = threading.Thread(target=recording.record)
             thread.start()
@@ -115,7 +117,7 @@ if __name__ == "__main__":
                 ex = False
                 break
             ai.text_to_speech(result)
-            ai.awake = False
+            
         else: 
             ai.listen()
 
