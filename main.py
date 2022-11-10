@@ -115,6 +115,7 @@ if __name__ == "__main__":
                 ex = False
                 break
             ai.text_to_speech(result)
+            ai.awake = False
         else: 
             ai.listen()
 
