@@ -85,12 +85,9 @@ def respond(mood, input):
             ex=False
 
             ## conversation
-        #else:   
-            #chat = nlp(transformers.Conversation(ai.text), pad_token_id=50256)
-            #res = str(chat)
-            #res = res[res.find("bot >> ")+6:].strip()
-        else:
-
-            res="Sorry, come again?"
+        else:   
+            chat = nlp(transformers.Conversation(ai.text), pad_token_id=50256)
+            res = str(chat)
+            res = res[res.find("bot >> ")+6:].strip()
 
         return res
