@@ -85,8 +85,8 @@ if __name__ == "__main__":
     ex=True
 
     while ex:
-        
-        text = listen()
+
+        text = ai.listen()
 
         if text.count(WAKE) > 0:       
         
