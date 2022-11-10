@@ -1,7 +1,7 @@
 from subprocess import call
 import speech_recognition as sr
 import serial
-import RPi.GPIO as GPIO    
+#import RPi.GPIO as GPIO    
 
 def speech_to_text():
     with sr.Microphone() as mic:
