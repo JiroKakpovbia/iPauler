@@ -121,9 +121,9 @@ if __name__ == "__main__":
 
         if ai.name in ai.text:
         
-            res = "Jake Paul is here and ready to rumble"
+            vlc.MediaPlayer("discord.mp3").play()
             ai.awake = True
-            ai.text_to_speech(res)
+
 
  
 
