@@ -32,9 +32,9 @@ class ChatBot():
 
     def speech_to_text(self):
         recognizer = sr.Recognizer()
-        with sr.Microphone() as mic:
+        with sr.Microphone() as mic, sr.AudioFile("input.wav") as source:
             print("Listening...")
-            audio = recognizer.record(sr.AudioFile("input.wav"))
+            audio = recognizer.record(source) 
             self.text="ERROR"
         try:
             self.text = recognizer.recognize_google(audio)
