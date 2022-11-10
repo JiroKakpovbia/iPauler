@@ -7,7 +7,10 @@ import vlc
 p = vlc.MediaPlayer("everydaybro.mp4/")
 
 def respond(mood, input):
+
     if mood == 1:
+
+        res = "Sorry, don't care"
 
         ## change to mood 2
         if "mood two" in input:
@@ -81,9 +84,7 @@ def respond(mood, input):
 
     if any(i in input for i in ["exit","close"]):
         return 0
-        ex=False
 
-    
     return res
 
 
