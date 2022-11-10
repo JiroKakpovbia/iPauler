@@ -33,6 +33,7 @@ class ChatBot():
         with sr.Microphone() as mic:
             print("Listening...")
             audio = recognizer.listen(mic)
+            print(audio)
             self.text="ERROR"
         try:
             self.text = recognizer.recognize_google(audio)
