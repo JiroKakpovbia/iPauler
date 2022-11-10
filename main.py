@@ -44,7 +44,7 @@ class ChatBot():
     def listen(self):
         recognizer = sr.Recognizer()
         with sr.Microphone() as mic:
-            audio = recognizer.listen(source)
+            audio = recognizer.listen(mic)
             said = ""
 
             said = recognizer.recognize_google(audio)
