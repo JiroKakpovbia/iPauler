@@ -14,6 +14,7 @@ p = pyaudio.PyAudio()
 
 def record():
 
+
     print('listening')
 
     stream = p.open(format=sample_format,
