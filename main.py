@@ -32,8 +32,7 @@ class ChatBot():
 
     def speech_to_text(self):
         recognizer = sr.Recognizer()
-        with sr.Microphone() as mic, sr.AudioFile("input.wav") as source:
-            print("Listening...")
+        with sr.AudioFile("input.wav") as source:
             audio = recognizer.record(source) 
             self.text="ERROR"
         try:
@@ -41,6 +40,16 @@ class ChatBot():
             print("Input  --> ", self.text)
         except:
             print("Input  -->  ERROR")
+
+    def listen():
+        recognizer = sr.Recognizer()
+        with sr.Microphone() as mic:
+            audio = recognizer.listen(source)
+            said = ""
+
+            said = recognizer.recognize_google(audio)
+
+        return said.lower()
             
 
     @staticmethod
@@ -71,23 +80,30 @@ class ChatBot():
 if __name__ == "__main__":
     
     ai = ChatBot(name="Jake Paul")
-    
-    ex=True
-    while ex:
-        activation = input("Talk to jake? y/n: ")
-        if activation == "y":
-            thread = threading.Thread(target=recording.record)
-            thread.start()
-            thread.join()
-            ai.speech_to_text()
 
-            result = responses.respond(ai.mood, ai.text)
-            os.remove("input.wav")
-            if result == 0:
-                ai.text_to_speech(np.random.choice(["Tata","Have a good day","Bye","Goodbye","Hope to meet soon","peace out!"]))
-                ex = False
-                break
-            ai.text_to_speech(result)
+    WAKE = "Jake Paul"
+    ex=True
+
+    while ex:
+        
+        text = listen()
+
+        if text.count(WAKE) > 0:       
+        
+            activation = input("Talk to jake? y/n: ")
+            if activation == "y":
+                thread = threading.Thread(target=recording.record)
+                thread.start()
+                thread.join()
+                ai.speech_to_text()
+
+                result = responses.respond(ai.mood, ai.text)
+                os.remove("input.wav")
+                if result == 0:
+                    ai.text_to_speech(np.random.choice(["Tata","Have a good day","Bye","Goodbye","Hope to meet soon","peace out!"]))
+                    ex = False
+                    break
+                ai.text_to_speech(result)
 
  
 
