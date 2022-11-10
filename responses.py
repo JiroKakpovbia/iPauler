@@ -43,7 +43,7 @@ def respond(mood, input):
         elif "what day" in input:
             res = "It's every day bro!"
         elif "music" in input:
-            vlc.MediaPlayer("everydaybro.mp4/")
+            vlc.MediaPlayer("everydaybro.mp4/").play
             time.sleep(60)
 
         ## city
