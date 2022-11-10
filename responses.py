@@ -83,9 +83,8 @@ def respond(mood, input):
         return 0
         ex=False
 
-    try:
-        return res
-    except:
-        return "go away"
+    
+    return res
+
 
     
