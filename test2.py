@@ -10,7 +10,9 @@ from gtts import gTTS
 
 # for language model
 import transformers
-
+from playsound import playsound
+import pyaudio
+import wave
 import os
 import time
 
@@ -32,7 +34,7 @@ class ChatBot():
         recognizer = sr.Recognizer()
         with sr.Microphone() as mic:
             print("Listening...")
-            audio = recognizer.listen(mic)
+            audio = AudioFile("input.wav")
             print(audio)
             self.text="ERROR"
         try:
