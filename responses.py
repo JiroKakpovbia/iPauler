@@ -3,6 +3,7 @@ import datetime
 import random
 import datetime
 import numpy as np
+import vlc
 
 def respond(mood, input):
     if mood == 1:
@@ -41,6 +42,9 @@ def respond(mood, input):
         ## what day
         elif "what day" in input:
             res = "It's every day bro!"
+        elif "music" in input:
+            vlc.MediaPlayer("everydaybro.mp4/")
+            time.sleep(60)
 
         ## city
         elif "city" in input:
@@ -84,5 +88,8 @@ def respond(mood, input):
             #chat = nlp(transformers.Conversation(ai.text), pad_token_id=50256)
             #res = str(chat)
             #res = res[res.find("bot >> ")+6:].strip()
+        else:
+
+            res="Sorry, come again?"
 
         return res
