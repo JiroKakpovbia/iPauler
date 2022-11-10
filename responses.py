@@ -4,6 +4,7 @@ import datetime
 import numpy as np
 import time
 import vlc
+p = vlc.MediaPlayer("everydaybro.mp4/")
 
 def respond(mood, input):
     if mood == 1:
@@ -43,7 +44,7 @@ def respond(mood, input):
         elif "what day" in input:
             res = "It's every day bro!"
         elif "music" in input:
-            vlc.MediaPlayer("everydaybro.mp4/").play
+            p.play()
             time.sleep(60)
 
         ## city

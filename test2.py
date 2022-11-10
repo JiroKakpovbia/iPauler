@@ -52,7 +52,7 @@ class ChatBot():
         statbuf = os.stat("res.mp3")
         mbytes = statbuf.st_size / 1024
         duration = mbytes / 200
-        vlc.MediaPlayer("res.mp3").play  #if you are using mac->afplay or else for windows->start
+        vlc.MediaPlayer("res.mp3").play()  #if you are using mac->afplay or else for windows->start
         #os.system("close res.mp3")
         time.sleep(int(50*duration))
         os.remove("res.mp3")
