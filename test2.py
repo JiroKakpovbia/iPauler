@@ -7,7 +7,7 @@ import vlc
 from gtts import gTTS
 
 # for language model
-#import transformers
+import transformers
 from playsound import playsound
 
 import threading

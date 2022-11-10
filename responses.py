@@ -79,15 +79,15 @@ def respond(mood, input):
             if input=="ERROR":
                 res="Sorry, come again?"
 
-        if any(i in input for i in ["exit","close"]):
-            return 0
+    if any(i in input for i in ["exit","close"]):
+        return 0
 
-            ex=False
+        ex=False
 
-            ## conversation
-        else:   
-            chat = nlp(transformers.Conversation(ai.text), pad_token_id=50256)
-            res = str(chat)
-            res = res[res.find("bot >> ")+6:].strip()
+        ## conversation
+    else:   
+        chat = nlp(transformers.Conversation(ai.text), pad_token_id=50256)
+        res = str(chat)
+        res = res[res.find("bot >> ")+6:].strip()
 
-        return res
+    return res
