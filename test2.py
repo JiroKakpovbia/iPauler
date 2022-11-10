@@ -1,7 +1,8 @@
-from subprocess import call
 import speech_recognition as sr
-#import RPi.GPIO as GPIO    
+import pyttsx3
+import os
 
+import vlc
 # for text-to-speech
 from gtts import gTTS
 
@@ -9,17 +10,16 @@ from gtts import gTTS
 #import transformers
 from playsound import playsound
 
-import wave
 import threading
 import time
 
 # for data
-import os
 import datetime
 import numpy as np
 
 import recording
 import responses
+
 
 
 # Building the AI
@@ -52,8 +52,8 @@ class ChatBot():
         statbuf = os.stat("res.mp3")
         mbytes = statbuf.st_size / 1024
         duration = mbytes / 200
-        os.system('start res.mp3')  #if you are using mac->afplay or else for windows->start
-        # os.system("close res.mp3")
+        vlc.MediaPlayer("res.mp3")  #if you are using mac->afplay or else for windows->start
+        #os.system("close res.mp3")
         time.sleep(int(50*duration))
         os.remove("res.mp3")
         
