@@ -41,7 +41,7 @@ class ChatBot():
         except:
             print("Input  -->  ERROR")
 
-    def listen():
+    def listen(self):
         recognizer = sr.Recognizer()
         with sr.Microphone() as mic:
             audio = recognizer.listen(source)
