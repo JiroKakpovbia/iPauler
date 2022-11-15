@@ -4,7 +4,7 @@ import speech_recognition as sr
 import time
 import os
 import sys
-os.environ["SDL_VIDEODRIVER"] = "rpi"
+#os.environ["SDL_VIDEODRIVER"] = "rpi"
 import pygame
 
 
