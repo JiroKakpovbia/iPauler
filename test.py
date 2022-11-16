@@ -9,7 +9,7 @@ os.environ['DISPLAY'] = ': 0.0'
 import sdl2
 
 
-sdl2.ext.init()
+sdl2.SDL_Init()
 
 
 
