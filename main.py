@@ -46,9 +46,16 @@ class ChatBot():
         with sr.Microphone() as mic:
             print("Say 'Jake Paul'...")
             audio = recognizer.listen(mic)
-            self.text = recognizer.recognize_google(audio)
-
-
+            self.text="null"
+            WAKE = "Jake Paul"
+            self.text = "null"
+        while self.text.count(WAKE) <= 0:
+            try:
+                self.text = recognizer.recognize_google(audio)
+            except:
+                self.text = "null"
+        vlc.MediaPlayer("discord.mp3").play()
+        ai.awake = True
 
     def unused(self):
         recognizer = sr.Recognizer()
@@ -90,8 +97,6 @@ if __name__ == "__main__":
     
     ai = ChatBot(name="Jake Paul")
 
-    WAKE = "Jake Paul"
-
     ex=True
 
     while ex:
@@ -116,10 +121,6 @@ if __name__ == "__main__":
         else: 
             ai.listen()
 
-        if ai.name in ai.text:
-        
-            vlc.MediaPlayer("discord.mp3").play()
-            ai.awake = True
 
 
  
