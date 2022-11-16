@@ -4,7 +4,7 @@ import speech_recognition as sr
 import time
 import os
 import sys
-os.environ["SDL_VIDEODRIVER"] = "directfb"
+os.environ["SDL_VIDEODRIVER"] = "X11"
 #os.environ['DISPLAY'] = ': 0.0'
 import pygame
 
