@@ -1,24 +1,15 @@
+
+from bs4 import BeautifulSoup
 import requests, json
-from urllib.request import urlopen
 
-api_key = "d3f942c21618e3c4c65190a565eba1b4"
-
-base_url = "http://api.openweathermap.org/data/2.5/weather?"
-
-def getlocation():
-
-    
-    url = 'http://ipinfo.io/json'
-    response = urlopen(url)
-    data = json.load(response)
-
-    return data['city']
 
 def getweather(city):
 
     city = city.replace(" ", "+")
 
+    api_key = "d3f942c21618e3c4c65190a565eba1b4"
 
+    base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
     complete_url = base_url + "appid=" + api_key + "&q=" + city
 
@@ -49,3 +40,7 @@ def getweather(city):
     
     else:
         return 0
+
+
+
+
