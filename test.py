@@ -13,8 +13,8 @@ pygame.init()
 
 
 
-X = 480
-Y = 320
+X = 1920
+Y = 1080
 
 scrn = pygame.display.set_mode((X, Y))
 
