@@ -7,21 +7,21 @@ import sys
 #os.environ["SDL_VIDEODRIVER"] = "dummy"
 os.environ['DISPLAY'] = ': 0.0'
 import sdl2
+import sdl2.ext as sdl2ext
 
 
-sdl2.SDL_Init()
 
-
+sdl2.ext.init()
 
 X = 640
 Y = 480
 
-scrn = sdl2.ext.Window((X, Y))
+scrn = sdl2.ext.Window("gaming", size=(X, Y))
 
 
 run = True
-imp = sdl2.sdlimage.IMG_Load("boxer.jpg").ConvertSurface()
-scrn.blit(imp, (0, 0))
+imp = sdl2.ext.image.load_img("boxer.jpg")
+sdl2.surface.SDL_BlitSurface(imp, scrn, 0, 0)
 scrn.refresh()
 while (run):
  
