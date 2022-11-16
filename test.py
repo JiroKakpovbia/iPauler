@@ -4,7 +4,7 @@ import speech_recognition as sr
 import time
 import os
 import sys
-os.environ["SDL_VIDEODRIVER"] = "rpi"
+#os.environ["SDL_VIDEODRIVER"] = "rpi"
 
 import pygame
 
@@ -13,8 +13,8 @@ pygame.init()
 
 
 
-X = 640
-Y = 480
+X = 480
+Y = 320
 
 scrn = pygame.display.set_mode((X, Y))
 
