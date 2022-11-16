@@ -35,7 +35,7 @@ def getweather(city):
 
         temperature = thingy.select('#wob_tm')[0].getText().strip()
 
-        weather = {}
+        weather = []
         weather[0] = time
         weather[1] = temperature
         weather[2] = info
