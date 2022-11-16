@@ -1,7 +1,7 @@
 import requests, json
 from bs4 import BeautifulSoup
 import re
-from urllib2 import urlopen
+from urllib import urlopen
 from geopy.geocoders import Nominatim
 
 headers = {
