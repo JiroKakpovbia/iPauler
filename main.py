@@ -46,7 +46,6 @@ class ChatBot():
         with sr.Microphone() as mic:
             print("Say 'Jake Paul'...")
             audio = recognizer.listen(mic)
-            self.text="null"
             WAKE = "Jake Paul"
             self.text = "null"
         while self.text.count(WAKE) <= 0:
