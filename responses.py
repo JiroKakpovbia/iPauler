@@ -53,7 +53,7 @@ def respond(mood, input):
 
             weather = getweather(city)
             
-            res = "The current temperature in "+city+" is "+str((weather[0] - 273.15) * 1.8 + 32)+"farenheight. The current atmospheric pressure is "+str(weather[1])+" hectopascal units. The current humidity is "+str(weather[2])+" percent. The overall conditions are "+str(weather[3])
+            res = "The current temperature in "+city+" is approximately "+str((weather[0] - 273.15) * 1.8 + 32)+" degrees farenheight. The current atmospheric pressure is "+str(weather[1])+" hectopascal units. The current humidity is "+str(weather[2])+" percent. The overall conditions are "+str(weather[3])
 
             if weather == 0:
                 res = "The weather is very nice"
