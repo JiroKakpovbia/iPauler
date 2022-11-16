@@ -6,33 +6,33 @@ import os
 import sys
 #os.environ["SDL_VIDEODRIVER"] = "dummy"
 os.environ['DISPLAY'] = ': 0.0'
-import pygame
+import sdl2
 
 
-pygame.init()
+sdl2.SDL_Init()
 
 
 
 X = 640
 Y = 480
 
-scrn = pygame.display.set_mode((X, Y))
+scrn = sdl2.ext.Window((X, Y))
 
 
 run = True
-imp = pygame.image.load("boxer.jpg").convert()
+imp = sdl2.sdlimage.IMG_Load("boxer.jpg").ConvertSurface()
 scrn.blit(imp, (0, 0))
-pygame.display.flip()
+scrn.refresh()
 while (run):
  
   # iterate over the list of Event objects
   # that was returned by pygame.event.get() method.
-    for i in pygame.event.get():
+    for i in sdl2.SDL_PollEvent():
  
         # if event object type is QUIT
         # then quitting the pygame
         # and program both.
-        if i.type == pygame.QUIT:
+        if i.type == sdl2.sdlttf.TTF_Quit()
             status = False
  
     
