@@ -54,8 +54,7 @@ class ChatBot():
                 self.text = recognizer.recognize_google(audio)
             except:
                 self.text = "null"
-        vlc.MediaPlayer("discord.mp3").play()
-        ai.awake = True
+
 
     def unused(self):
         recognizer = sr.Recognizer()
@@ -121,6 +120,10 @@ if __name__ == "__main__":
         else: 
             ai.listen()
 
+        if ai.name in ai.text:
+        
+            vlc.MediaPlayer("discord.mp3").play()
+            ai.awake = True
 
 
  
