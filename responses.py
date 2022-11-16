@@ -53,7 +53,7 @@ def respond(mood, input):
 
             weather = getweather(city)
 
-            res = "The current temperature in "+city+" is "+weather['temperature']+" and the conditions are "+weather['info']
+            res = "The current temperature in "+city+" is "+weather[1]+" and the conditions are "+weather[2]
 
         
         ## action time
