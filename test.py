@@ -5,7 +5,7 @@ import time
 import os
 import sys
 #os.environ["SDL_VIDEODRIVER"] = 'KMS'
-os.environ['DISPLAY'] = ': 0.0'
+os.environ['DISPLAY'] = ':0'
 import pygame
 
 
