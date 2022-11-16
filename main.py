@@ -44,14 +44,11 @@ class ChatBot():
     def listen(self):
         recognizer = sr.Recognizer()
         with sr.Microphone() as mic:
-            print("Listening...")
+            print("Say 'Jake Paul'...")
             audio = recognizer.listen(mic)
-            self.text="ERROR"
-        try:
             self.text = recognizer.recognize_google(audio)
-            print("Input  --> ", self.text)
-        except:
-            print("Input  -->  ERROR")
+
+
 
     def unused(self):
         recognizer = sr.Recognizer()
@@ -98,8 +95,6 @@ if __name__ == "__main__":
     ex=True
 
     while ex:
-
-        
 
         if ai.awake:     
 
