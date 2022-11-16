@@ -4,7 +4,15 @@ import datetime
 import numpy as np
 import time
 import vlc
+
+from functions import getweather as getweather
+from functions import getlocation as getlocation
+
+
+
+
 p = vlc.MediaPlayer("everydaybro.mp4/")
+
 
 def respond(mood, input):
 
@@ -38,6 +46,15 @@ def respond(mood, input):
                 res = "Rock, Paper, Scissors. Paper!"
             else:
                 res = "Rock, Paper, Scissors. Scissors!"
+
+        elif "weather" in input:
+
+            city = getlocation()
+
+            weather = getweather(city)
+
+            res = "The current temperature in "+city+" is "+weather['temperature']+" and the conditions are "+weather['info']
+
         
         ## action time
         #elif "time" in input:
@@ -46,6 +63,7 @@ def respond(mood, input):
         ## what day
         elif "what day" in input:
             res = "It's every day bro!"
+
         elif "music" in input:
             p.play()
             time.sleep(60)
