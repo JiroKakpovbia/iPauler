@@ -5,7 +5,7 @@ import time
 import os
 import sys
 #os.environ["SDL_VIDEODRIVER"] = "X11"
-os.environ["DISPLAY"] = "rapberrypi.local:0"
+
 import pygame
 
 
