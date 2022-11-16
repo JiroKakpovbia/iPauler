@@ -4,7 +4,7 @@ import speech_recognition as sr
 import time
 import os
 import sys
-os.environ["SDL_VIDEODRIVER"] = 'x11'
+os.environ["SDL_VIDEODRIVER"] = 'wayland'
 os.environ['DISPLAY'] = ': 0.0'
 import pygame
 
