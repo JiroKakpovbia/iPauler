@@ -32,10 +32,10 @@ while (run):
         # if event object type is QUIT
         # then quitting the pygame
         # and program both.
-        if i.type == sdl2.sdlttf.TTF_Quit()
+        if i.type == sdl2.sdlttf.TTF_Quit():
             status = False
  
     
  
 # paint screen one time
-pygame.display.flip()
+
