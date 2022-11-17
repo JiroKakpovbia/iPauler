@@ -90,7 +90,7 @@ class ChatBot():
         duration = mbytes / 200
         result = pygame.mixer.music.load("res.mp3")
         pygame.mixer.music.play()
-        open = pygame.image.load("mouth\m4.png").convert()
+        open = pygame.image.load("mouth/m4.png/").convert()
         while pygame.mixer.music.get_busy():
             pygame.time.wait(500)
             screen.blit(open, (0, 0))
@@ -120,7 +120,7 @@ if __name__ == "__main__":
     devices = PvRecorder.get_audio_devices()
     print(devices)
     screen = pygame.display.set_mode((X, Y))
-    m1 = pygame.image.load("mouth\m1.png").convert()
+    m1 = pygame.image.load("mouth/m1.png/").convert()
     screen.blit(m1, (0, 0))
     
     pygame.display.flip()
