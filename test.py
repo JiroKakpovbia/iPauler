@@ -7,15 +7,19 @@ import sys
 import pygame.display
 import OpenGL
 
-os.environ["SDL_VIDEODRIVER"] = "OpenGL"
+os.environ["SDL_VIDEODRIVER"] = "fbcon"
 
 import pygame
 
+pygame.display.get_driver
+
+pygame.display.Info
 
 pygame.init()
 pygame.display.init()
 
-
+pygame.display.Info
+pygame.display.get_driver
 X = 1920
 Y = 1080
 
