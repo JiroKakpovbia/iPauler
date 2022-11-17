@@ -67,9 +67,9 @@ def respond(mood, input):
         elif "what day" in input:
             res = "It's every day bro!"
 
-        elif "music" in input:
-            p.play()
-            time.sleep(60)
+        elif "music" or "song" in input:
+
+            res = 1
 
         ## city
         elif "city" in input:
