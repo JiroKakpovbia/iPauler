@@ -6,7 +6,7 @@ import os
 import sys
 import pygame.display
 
-#os.environ["SDL_VIDEODRIVER"] = "rpi"
+os.environ["SDL_VIDEODRIVER"] = "opengl"
 
 import pygame
 
