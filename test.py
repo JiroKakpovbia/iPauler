@@ -5,8 +5,9 @@ import time
 import os
 import sys
 import pygame.display
+import OpenGL
 
-os.environ["SDL_VIDEODRIVER"] = "vulkan"
+os.environ["SDL_VIDEODRIVER"] = "dummy"
 
 import pygame
 
