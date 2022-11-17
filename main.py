@@ -157,9 +157,9 @@ if __name__ == "__main__":
                 p.stop()
                 screen.blit(m1, (0, 0))
             elif result == 2:
-                pygame.mixer.music.load("christmas.mp3")
+                holiday = pygame.mixer.music.load("christmas.mp3")
                 
-                pygame.mixer.music.play("christmas.mp3")
+                pygame.mixer.music.play()
                 while pygame.mixer.music.get_busy():
                     pygame.time.wait(500)
                     screen.blit(open, (0, 0))
