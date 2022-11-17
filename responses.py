@@ -69,7 +69,6 @@ def respond(mood, input):
 
         elif "music" or "song" in input:
 
-            
             res = 1
 
         ## city

@@ -27,6 +27,7 @@ import pvporcupine
 from pvrecorder import PvRecorder
 
 p = vlc.MediaPlayer("everydaybro.mp4/")
+vlc.MediaPlayer().video_set_scale(0.6)
 
 access_key = "KrtyFBDP3S9uW20iiBF0l0QarTeLnJx7hIgT8noopQrXFfqTOCrhTg=="
 #keyword_paths = ['/wakeword']
@@ -153,6 +154,7 @@ if __name__ == "__main__":
                 while not "stop" in ai.text:
                     ai.listen()
                 p.stop()
+                screen.blit(m1, (0, 0))
 
                 
             else: ai.text_to_speech(result)
