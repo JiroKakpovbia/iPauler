@@ -159,10 +159,15 @@ if __name__ == "__main__":
             elif result == 2:
                 pygame.mixer.music.load("christmas.mp3")
                 
-                while not "stop" in ai.text:
-                    pygame.mixer.music.play("christmas.mp3")
-                    
-                pygame.mixer.music.stop()
+                pygame.mixer.music.play("christmas.mp3")
+                while pygame.mixer.music.get_busy():
+                    pygame.time.wait(500)
+                    screen.blit(open, (0, 0))
+                    pygame.display.flip()
+                    pygame.time.wait(500)
+                    screen.blit(m1, (0, 0))
+                    pygame.display.flip()
+
                 
                 
             else: ai.text_to_speech(result)
