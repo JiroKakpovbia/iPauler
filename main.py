@@ -27,10 +27,6 @@ import pvporcupine
 from pvrecorder import PvRecorder
 
 p = vlc.MediaPlayer("everydaybro.mp4/")
-<<<<<<< HEAD
-=======
-vlc.MediaPlayer().video_set_scale(0.6)
->>>>>>> fd3c96a03c34c3ad850923f2bba692ab58d4f24d
 
 access_key = "KrtyFBDP3S9uW20iiBF0l0QarTeLnJx7hIgT8noopQrXFfqTOCrhTg=="
 #keyword_paths = ['/wakeword']
