@@ -160,6 +160,7 @@ if __name__ == "__main__":
             else: ai.text_to_speech(result)
             
         else: 
+            pygame.display.update()
             ai.listen()
 
         if ai.name in ai.text:

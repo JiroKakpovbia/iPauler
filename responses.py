@@ -67,9 +67,6 @@ def respond(mood, input):
         elif "what day" in input:
             res = "It's every day bro!"
 
-        elif "music" or "song" in input:
-
-            res = 1
 
         ## city
         elif "city" in input:
@@ -94,6 +91,11 @@ def respond(mood, input):
         ## your name
         elif "your name" in input:
             res = "I'm the one and only Jake Joseph Paul."
+
+        elif "music" in input:
+
+            res = 1
+
         
         ## respond politely
         elif any(i in input for i in ["thank","thanks"]):
