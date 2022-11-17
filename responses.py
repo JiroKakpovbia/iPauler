@@ -93,7 +93,7 @@ def respond(mood, input):
             res = "I'm the one and only Jake Joseph Paul."
 
         elif "christmas" in input:
-            res = "2"
+            res = 2
 
         elif "music" in input:
 
