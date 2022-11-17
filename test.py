@@ -6,7 +6,7 @@ import os
 import sys
 import pygame.display
 
-os.environ["SDL_VIDEODRIVER"] = "opengl"
+os.environ["SDL_VIDEODRIVER"] = "vulkan"
 
 import pygame
 
