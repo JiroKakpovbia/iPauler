@@ -149,6 +149,7 @@ if __name__ == "__main__":
                 ai.text_to_speech(np.random.choice(["Tata","Have a good day","Bye","Goodbye","Hope to meet soon","peace out!"]))
                 ex = False
                 break
+                  
             elif result == 1:
                 p.play()
                 while not "stop" in ai.text:
@@ -178,7 +179,7 @@ if __name__ == "__main__":
             pygame.mixer.music.load("discord.mp3")
             pygame.mixer.music.play()
             ai.awake = True
-
+    exit()
 
  
 
