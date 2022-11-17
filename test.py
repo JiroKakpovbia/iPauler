@@ -7,7 +7,7 @@ import sys
 import pygame.display
 import OpenGL
 
-os.environ["SDL_VIDEODRIVER"] = "directfb"
+os.environ["SDL_VIDEODRIVER"] = "fbcon"
 
 import pygame
 
