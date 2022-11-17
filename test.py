@@ -7,7 +7,7 @@ import sys
 import pygame.display
 import OpenGL
 
-os.environ["SDL_VIDEODRIVER"] = "vgl"
+os.environ["SDL_VIDEODRIVER"] = "svgalib"
 
 import pygame
 
