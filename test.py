@@ -4,13 +4,15 @@ import speech_recognition as sr
 import time
 import os
 import sys
+import pygame.display
+
 #os.environ["SDL_VIDEODRIVER"] = "rpi"
 
 import pygame
 
 
 pygame.init()
-
+pygame.display.init()
 
 
 X = 1920
