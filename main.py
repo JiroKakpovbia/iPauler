@@ -158,14 +158,10 @@ if __name__ == "__main__":
                 screen.blit(m1, (0, 0))
             elif result == 2:
                 pygame.mixer.music.load("christmas.mp3")
-                pygame.mixer.music.play()
+                
                 while not "stop" in ai.text:
-                    pygame.time.wait(500)
-                    screen.blit(open, (0, 0))
-                    pygame.display.flip()
-                    pygame.time.wait(500)
-                    screen.blit(m1, (0, 0))
-                    pygame.display.flip()
+                    pygame.mixer.music.play("christmas.mp3")
+                    
                 pygame.mixer.music.stop()
                 
                 
