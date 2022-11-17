@@ -35,6 +35,4 @@ while (run):
             status = False
  
     
- 
-# paint screen one time
-pygame.display.flip()
+pygame.quit()
