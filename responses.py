@@ -8,6 +8,10 @@ import vlc
 from functions import getweather as getweather
 from functions import getlocation as getlocation
 
+from socialblade import YouTubeChannel
+
+id = YouTubeChannel('UCcgVECVN4OKV6DH1jLkqmcA')
+
 
 
 
@@ -94,6 +98,12 @@ def respond(mood, input):
 
         elif "what should I do today" in input:
             res = "Buy my merch. It is selling like a god church."
+
+        elif "subscribers" in input:
+            subs = id.get_subscriber_count()
+
+            res = "My current subscriber count is "+subs+" subscribers. Thank you to all my fans and please buy some new merch"
+
 
         elif "holiday" in input:
 
