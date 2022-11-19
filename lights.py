@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
         val = input("choose color: ")
         if(val == "0"):
-            turnoff()
+            turnOff()
         if(val == "1"):
             red()
         if(val == "2"):
