@@ -52,5 +52,5 @@ if __name__ == "__main__":
             green()
         if(val == "3"):
             blue()
-        if(val == 4):
+        if(val == "4"):
             white()
