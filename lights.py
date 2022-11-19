@@ -14,9 +14,6 @@ GPIO.setup(greenPin,GPIO.OUT)
 GPIO.setup(bluePin,GPIO.OUT)
 
 
-GPIO.output(redPin,GPIO.HIGH)
-GPIO.output(greenPin,GPIO.LOW)
-GPIO.output(bluePin,GPIO.HIGH)
 
 def turnOff():
     GPIO.output(redPin,GPIO.HIGH)
@@ -47,12 +44,13 @@ if __name__ == "__main__":
     while run:
 
         val = input("choose color: ")
+        if(val == "0"):
+            turnoff()
         if(val == "1"):
-            print("hi")
             red()
-        if(val == 2):
+        if(val == "2"):
             green()
-        if(val == 3):
+        if(val == "3"):
             blue()
         if(val == 4):
             white()
