@@ -3,7 +3,7 @@ from time import sleep
 
 GPIO.setwarnings(False)
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)  
 #set red,green and blue pins
 redPin = 17
 greenPin = 27
@@ -48,3 +48,5 @@ if __name__ == "__main__":
             green()
         if(val == 3):
             blue()
+        if(val == 4):
+            white()
