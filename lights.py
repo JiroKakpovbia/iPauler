@@ -15,7 +15,7 @@ GPIO.setup(bluePin,GPIO.OUT)
 
 
 GPIO.output(redPin,GPIO.LOW)
-GPIO.output(greenPin,GPIO.HIGH)h
+GPIO.output(greenPin,GPIO.HIGH)
 GPIO.output(bluePin,GPIO.HIGH)
 
 def turnOff():
