@@ -47,7 +47,7 @@ if __name__ == "__main__":
     while run:
 
         val = input("choose color: ")
-        if(val == 1):
+        if(val == "1"):
             print("hi")
             red()
         if(val == 2):
