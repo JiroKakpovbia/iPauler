@@ -487,10 +487,10 @@ def PlayerChooseSpot(size, available_numbers):
             return str(number)         
 
 
-def main():
+def start():
     """The mainline for the program"""
 
-    pygame.init()
+    #pygame.init()
 
     #Set up windowsurface
     windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), 0, 32)

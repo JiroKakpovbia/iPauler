@@ -185,6 +185,7 @@ if __name__ == "__main__":
             pygame.mixer.music.load("discord.mp3")
             pygame.mixer.music.play()
             ai.awake = True
+    pygame.quit()
     exit()
 
  

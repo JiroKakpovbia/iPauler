@@ -7,6 +7,8 @@ import vlc
 
 from functions import getweather as getweather
 from functions import getlocation as getlocation
+import threading
+import Basic_Tic_Tac_Toe
 
 from socialblade import YouTubeChannel
 
@@ -61,6 +63,12 @@ def respond(mood, input):
 
             if weather == 0:
                 res = "The weather is very nice"
+
+        elif "tic tac toe" in input:
+
+            thread = threading.Thread(target=Basic_Tic_Tac_Toe.start)
+            thread.start()
+            thread.join()
 
         
         ## action time
