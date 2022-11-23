@@ -48,9 +48,14 @@ def yellow():
     GPIO.output(bluePin,GPIO.HIGH)
 
 def disco():
-    GPIO.output(redPin,np.random.choice([(GPIO.LOW, GPIO.HIGH)]))
-    GPIO.output(greenPin,np.random.choice([(GPIO.LOW, GPIO.HIGH)]))
-    GPIO.output(bluePin,np.random.choice([(GPIO.LOW, GPIO.HIGH)]))
+
+    a = np.random.choice([(GPIO.LOW, GPIO.HIGH)])
+    b = np.random.choice([(GPIO.LOW, GPIO.HIGH)])
+    c = np.random.choice([(GPIO.LOW, GPIO.HIGH)])
+
+    GPIO.output(redPin,c)
+    GPIO.output(greenPin,a)
+    GPIO.output(bluePin,b)
 
 
 
