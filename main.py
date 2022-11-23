@@ -157,12 +157,13 @@ if __name__ == "__main__":
                 break
                   
             elif result == 1:
-
+                rainbow = threading.Thread(target=lights.disco)
+                rainbow.start()
                 p.play()
                 while not "stop" in ai.text:
-                    lights.disco()
                     ai.listen()
                 p.stop()
+                rainbow.stop()
                 lights.turnOff()
                 screen.blit(m1, (0, 0))
             elif result == 2:
