@@ -53,25 +53,25 @@ def disco():
     b = 0
     c = 0
     while True:
-        while a == b and b == c and c ==2:
-            a = np.random.choice((1,2))
-            b = np.random.choice((1,2))
-            c = np.random.choice((1,2))
 
-        if a == 1:
-            GPIO.output(greenPin,GPIO.HIGH)
-        else:
-            GPIO.output(greenPin,GPIO.LOW)
-        if b == 1:
-            GPIO.output(redPin,GPIO.HIGH)
-        else:
-            GPIO.output(redPin,GPIO.LOW)
-        if c == 1:
-            GPIO.output(bluePin,GPIO.HIGH)
-        else:
-            GPIO.output(bluePin,GPIO.LOW)
+        a = np.random.choice((1,2))
+        b = np.random.choice((1,2))
+        c = np.random.choice((1,2))
+        if not a ==b and b==c:
+            if a == 1:
+                GPIO.output(greenPin,GPIO.HIGH)
+            else:
+                GPIO.output(greenPin,GPIO.LOW)
+            if b == 1:
+                GPIO.output(redPin,GPIO.HIGH)
+            else:
+                GPIO.output(redPin,GPIO.LOW)
+            if c == 1:
+                GPIO.output(bluePin,GPIO.HIGH)
+            else:
+                GPIO.output(bluePin,GPIO.LOW)
 
-        sleep(0.5)
+            sleep(0.5)
 
 
 
