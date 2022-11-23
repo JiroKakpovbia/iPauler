@@ -49,6 +49,9 @@ def yellow():
 
 def disco():
 
+    a = 0
+    b = 0
+    c = 0
     while True:
         while a != 1 !=b != c:
             a = np.random.choice((1,2))
