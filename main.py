@@ -158,8 +158,10 @@ if __name__ == "__main__":
             elif result == 1:
                 p.play()
                 while not "stop" in ai.text:
+                    lights.disco()
                     ai.listen()
                 p.stop()
+                lights.turnOff()
                 screen.blit(m1, (0, 0))
             elif result == 2:
                 holiday = pygame.mixer.music.load("christmas.mp3")

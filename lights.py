@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 from time import sleep
+import numpy as np
 
 GPIO.setwarnings(False)
 
@@ -45,6 +46,14 @@ def yellow():
     GPIO.output(redPin,GPIO.LOW)
     GPIO.output(greenPin,GPIO.HIGH)
     GPIO.output(bluePin,GPIO.HIGH)
+
+def disco():
+    GPIO.output(np.random.choice([redPin,GPIO.LOW,redPin,GPIO.HIGH]))
+    GPIO.output(np.random.choice([greenPin,GPIO.LOW,redPin,GPIO.HIGH]))
+    GPIO.output(np.random.choice([bluePin,GPIO.LOW,redPin,GPIO.HIGH]))
+
+
+
 
 
 if __name__ == "__main__":

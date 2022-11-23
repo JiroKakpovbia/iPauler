@@ -8,6 +8,7 @@ from pygame import gfxdraw
 import speech_recognition as sr
 from gtts import gTTS
 import lights
+import numpy as np
 
 ICONONE = "X"   #The symbol for the first icon
 ICONTWO = "O"   #The symbol for the second icon
@@ -553,11 +554,12 @@ def start():
             #Make the change in the 2D array (board)
             MakeChange(copy, board, player_icon, chosen, BOARD_SIZE, available_numbers)
             lights.turnOff()
-            tts("Lull. Nice move, loser.")
+            
             
             turns += 1
 
             display_frame(windowSurface, board)
+            tts(np.random.choice(["Lull. Nice move loser.","Not bad.","Imagine not having a lambo.","you are trash","L"]))
             ##time.sleep(2)
 
             #Check if player has won and handle accordingly
