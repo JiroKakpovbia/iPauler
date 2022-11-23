@@ -26,6 +26,8 @@ import pvporcupine
 
 from pvrecorder import PvRecorder
 
+import lights
+
 p = vlc.MediaPlayer("everydaybro.mp4/")
 p.set_position(0)
 
@@ -92,13 +94,16 @@ class ChatBot():
         result = pygame.mixer.music.load("res.mp3")
         pygame.mixer.music.play()
         open = pygame.image.load("mouth/m4.png").convert()
+        closed = pygame.image.load("mouth/m2.png").convert()
+        lights.purple()
         while pygame.mixer.music.get_busy():
             pygame.time.wait(500)
             screen.blit(open, (0, 0))
             pygame.display.flip()
             pygame.time.wait(500)
-            screen.blit(m1, (0, 0))
+            screen.blit(closed, (0, 0))
             pygame.display.flip()
+        lights.turnOff()
         screen.blit(m1, (0, 0))
         pygame.mixer.music.unload()
         os.remove("res.mp3")
@@ -118,8 +123,6 @@ if __name__ == "__main__":
     Y = 320
 
     
-    devices = PvRecorder.get_audio_devices()
-    print(devices)
     screen = pygame.display.set_mode((X, Y))
     m1 = pygame.image.load("mouth/m1.png").convert()
     screen.blit(m1, (0, 0))
@@ -139,8 +142,10 @@ if __name__ == "__main__":
             ai.awake = False  
         
             thread = threading.Thread(target=recording.record)
+            lights.blue()
             thread.start()
             thread.join()
+            lights.turnOff()
             ai.speech_to_text()
 
             result = responses.respond(ai.mood, ai.text)

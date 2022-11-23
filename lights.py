@@ -16,9 +16,9 @@ GPIO.setup(bluePin,GPIO.OUT)
 
 
 def turnOff():
-    GPIO.output(redPin,GPIO.HIGH)
-    GPIO.output(greenPin,GPIO.HIGH)
-    GPIO.output(bluePin,GPIO.HIGH)
+    GPIO.output(redPin,GPIO.LOW)
+    GPIO.output(greenPin,GPIO.LOW)
+    GPIO.output(bluePin,GPIO.LOW)
     
 def white():
     GPIO.output(redPin,GPIO.LOW)
@@ -26,14 +26,18 @@ def white():
     GPIO.output(bluePin,GPIO.LOW)
     
 def red():
-    GPIO.output(redPin,GPIO.LOW)
-    GPIO.output(greenPin,GPIO.HIGH)
-    GPIO.output(bluePin,GPIO.HIGH)
-def green():
     GPIO.output(redPin,GPIO.HIGH)
+    GPIO.output(greenPin,GPIO.LOW)
+    GPIO.output(bluePin,GPIO.LOW)
+def green():
+    GPIO.output(redPin,GPIO.LOW)
     GPIO.output(greenPin,GPIO.HIGH)
     GPIO.output(bluePin,GPIO.LOW)
 def blue():
+    GPIO.output(redPin,GPIO.LOW)
+    GPIO.output(greenPin,GPIO.LOW)
+    GPIO.output(bluePin,GPIO.HIGH)
+def purple():
     GPIO.output(redPin,GPIO.HIGH)
     GPIO.output(greenPin,GPIO.LOW)
     GPIO.output(bluePin,GPIO.HIGH)
