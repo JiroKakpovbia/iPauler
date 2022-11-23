@@ -67,7 +67,7 @@ def disco():
         else:
             GPIO.output(bluePin,GPIO.LOW)
 
-        sleep(5)
+        sleep(2)
 
 
     GPIO.output(redPin,np.random.choice([(GPIO.LOW, GPIO.HIGH)]))
