@@ -57,7 +57,7 @@ def disco():
         a = np.random.choice((1,2))
         b = np.random.choice((1,2))
         c = np.random.choice((1,2))
-        if not a ==b and b==c:
+        if not (a ==b and b==c):
             if a == 1:
                 GPIO.output(greenPin,GPIO.HIGH)
             else:
