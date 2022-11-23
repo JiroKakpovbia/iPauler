@@ -553,6 +553,7 @@ def start():
             #Make the change in the 2D array (board)
             MakeChange(copy, board, player_icon, chosen, BOARD_SIZE, available_numbers)
             lights.turnOff()
+            tts("Lull. Nice move, loser.")
             
             turns += 1
 
@@ -565,7 +566,7 @@ def start():
                 display_frame(windowSurface, board)
                 time.sleep(2)
                 display_end(windowSurface, board, "You Beat The Legendary Jake Paul!")
-                tts("Nice cheating bro.")
+                tts("Nice cheating bro. Burn in hell.")
                 time.sleep(5)
                 lights.turnOff()
                 game_done = True
@@ -591,7 +592,7 @@ def start():
         else:
             
             #Find out where the computer wants to play
-            tts("Lull nice move loser.")
+            
             chosen = ComputerChooseSpot(order, copy, board, computer_icon, player_icon, BOARD_SIZE, available_numbers)
             #Make the change in the 2D array (board)
             MakeChange(copy, board, computer_icon, chosen, BOARD_SIZE, available_numbers)
@@ -608,7 +609,7 @@ def start():
                 display_frame(windowSurface, board)
                 time.sleep(2)
                 display_end(windowSurface, board, "Ha Ha! You Lose!")
-                tts("Get owned son.")
+                tts("You suck. Go touch some grass.")
                 lights.turnOff()
                 time.sleep(5)
                 game_done = True
