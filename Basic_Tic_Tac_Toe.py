@@ -594,7 +594,6 @@ def start():
             #Switch the turn
             turn = "You"
 
-    terminate()
+    quit()
         
-main()
 
