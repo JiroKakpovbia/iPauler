@@ -157,9 +157,10 @@ if __name__ == "__main__":
                 break
                   
             elif result == 1:
+                lights.disco()
                 p.play()
                 while not "stop" in ai.text:
-                    lights.disco()
+                    
                     ai.listen()
                 p.stop()
                 lights.turnOff()
