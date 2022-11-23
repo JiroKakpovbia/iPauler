@@ -64,7 +64,7 @@ def respond(mood, input):
             if weather == 0:
                 res = "The weather is very nice"
 
-        elif "tic tac toe" in input:
+        elif "game" in input:
 
             thread = threading.Thread(target=Basic_Tic_Tac_Toe.start)
             thread.start()
