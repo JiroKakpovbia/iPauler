@@ -126,6 +126,7 @@ if __name__ == "__main__":
     screen = pygame.display.set_mode((X, Y))
     m1 = pygame.image.load("mouth/m1.png").convert()
     screen.blit(m1, (0, 0))
+    lights.turnOff()
     
     pygame.display.flip()
 
