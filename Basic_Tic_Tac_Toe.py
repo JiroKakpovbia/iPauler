@@ -6,6 +6,8 @@ import random, pygame, time, os
 from pygame.locals import *
 from pygame import gfxdraw
 import speech_recognition as sr
+from gtts import gTTS
+import lights
 
 ICONONE = "X"   #The symbol for the first icon
 ICONTWO = "O"   #The symbol for the second icon
@@ -39,6 +41,19 @@ def get_speech():
         pass
  
     return text
+
+def tts(text):
+    print("Jake Paul --> ", text)
+    speaker = gTTS(text=text, lang="en", slow=False)
+
+    speaker.save("res.mp3")
+    statbuf = os.stat("res.mp3")
+    mbytes = statbuf.st_size / 1024
+    duration = mbytes / 200
+    result = pygame.mixer.music.load("res.mp3")
+    pygame.mixer.music.play()
+    pygame.mixer.music.unload()
+    os.remove("res.mp3")
 
 
 def terminate():
@@ -529,10 +544,14 @@ def start():
         #It's the players turn            
         if turn == "You":
 
+
+            tts("Your move.")
             #Find out where the player wants to mark off
+            lights.blue()
             chosen = PlayerChooseSpot(BOARD_SIZE, available_numbers)
             #Make the change in the 2D array (board)
             MakeChange(copy, board, player_icon, chosen, BOARD_SIZE, available_numbers)
+            lights.turnOff()
             
             turns += 1
 
@@ -541,19 +560,26 @@ def start():
 
             #Check if player has won and handle accordingly
             if GameDone(board, player_icon):
+                lights.green()
                 display_frame(windowSurface, board)
                 time.sleep(2)
                 display_end(windowSurface, board, "You Beat The Legendary Jake Paul!")
+                tts("Nice cheating bro.")
                 time.sleep(5)
+                lights.turnOff()
                 game_done = True
                 
     
             #Check if the game is a tie and handle accordingly
             elif turns == 9:
+                lights.yellow()
                 display_frame(windowSurface, board)
                 time.sleep(2)
+
                 display_end(windowSurface, board, "You're Lucky I Didn't KO You!")
+                tts("Let's play again sometime nerd.")
                 time.sleep(5)
+                lights.turnOff()
                 game_done = True
 
             #Switch the turn
@@ -564,6 +590,7 @@ def start():
         else:
             
             #Find out where the computer wants to play
+            tts("Lull nice move loser.")
             chosen = ComputerChooseSpot(order, copy, board, computer_icon, player_icon, BOARD_SIZE, available_numbers)
             #Make the change in the 2D array (board)
             MakeChange(copy, board, computer_icon, chosen, BOARD_SIZE, available_numbers)
@@ -576,19 +603,25 @@ def start():
 
             #Check if computer has won and handle accordingly
             if GameDone(board, computer_icon):
+                lights.red()
                 display_frame(windowSurface, board)
                 time.sleep(2)
                 display_end(windowSurface, board, "Ha Ha! You Lose!")
+                tts("Get owned son.")
+                lights.turnOff()
                 time.sleep(5)
                 game_done = True
                 
 
             #Check if the game is a tie and handle accordingly
             elif turns == 9:
+                lights.yellow()
                 display_frame(windowSurface, board)
                 time.sleep(2)
                 display_end(windowSurface, board, "You're Lucky I Didn't KO You!")
+                tts("Let's play again sometime nerd.")
                 time.sleep(5)
+                lights.turnOff()
                 game_done = True
                 
             #Switch the turn

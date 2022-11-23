@@ -70,6 +70,8 @@ def respond(mood, input):
             thread.start()
             thread.join()
 
+            res = "Good game my brother."
+
         
         ## action time
         #elif "time" in input:
