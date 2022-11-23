@@ -53,7 +53,7 @@ def disco():
     b = 0
     c = 0
     while True:
-        while a != 1 !=b != c:
+        while a != 1 and b!= 1 and c!= 1:
             a = np.random.choice((1,2))
             b = np.random.choice((1,2))
             c = np.random.choice((1,2))
