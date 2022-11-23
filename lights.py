@@ -41,6 +41,11 @@ def purple():
     GPIO.output(redPin,GPIO.HIGH)
     GPIO.output(greenPin,GPIO.LOW)
     GPIO.output(bluePin,GPIO.HIGH)
+def yellow():
+    GPIO.output(redPin,GPIO.LOW)
+    GPIO.output(greenPin,GPIO.HIGH)
+    GPIO.output(bluePin,GPIO.HIGH)
+
 
 if __name__ == "__main__":
     run = True
