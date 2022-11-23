@@ -45,13 +45,14 @@ def get_speech():
 def tts(text):
     print("Jake Paul --> ", text)
     speaker = gTTS(text=text, lang="en", slow=False)
-
     speaker.save("res.mp3")
     statbuf = os.stat("res.mp3")
     mbytes = statbuf.st_size / 1024
     duration = mbytes / 200
     result = pygame.mixer.music.load("res.mp3")
     pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy():
+        pass
     pygame.mixer.music.unload()
     os.remove("res.mp3")
 
