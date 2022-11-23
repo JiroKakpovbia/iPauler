@@ -162,7 +162,7 @@ if __name__ == "__main__":
                 p.play()
                 while not "stop" in ai.text:
                     ai.listen()
-                p.stop()
+                p.join()
                 rainbow.stop()
                 lights.turnOff()
                 screen.blit(m1, (0, 0))
