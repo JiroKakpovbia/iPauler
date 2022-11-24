@@ -9,7 +9,7 @@ from functions import getweather as getweather
 from functions import getlocation as getlocation
 import threading
 import Basic_Tic_Tac_Toe
-
+import get_tweet
 from socialblade import YouTubeChannel
 
 id = YouTubeChannel('UCcgVECVN4OKV6DH1jLkqmcA')
@@ -113,6 +113,11 @@ def respond(mood, input):
             subs = id.get_subscriber_count()
 
             res = "My current subscriber count is "+subs+" subscribers. Thank you to all my fans and please buy some new merch"
+
+        elif "tweet" in input:
+
+            tweet = get_tweet.get_tweet()
+            res = "I just tweeted this:"+tweet
 
 
         elif "holiday" in input:
