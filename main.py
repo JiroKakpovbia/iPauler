@@ -129,6 +129,7 @@ if __name__ == "__main__":
     lights.turnOff()
     
     pygame.display.flip()
+    pygame.mouse.set_visible(False)
 
     ai = ChatBot(name="Jake Paul")
 
@@ -162,21 +163,22 @@ if __name__ == "__main__":
                 p.play()
                 while not "Jake Paul" in ai.text:
                     ai.listen()
-                p.join()
-                rainbow.stop()
+                rainbow.join()
                 lights.turnOff()
                 screen.blit(m1, (0, 0))
+
             elif result == 2:
-                holiday = pygame.mixer.music.load("christmas.mp3")
-                
+
+                pygame.mixer.music.load("christmas.mp3")
+                holiday = threading.Thread(target=lights.holiday)
+                holiday.start()
                 pygame.mixer.music.play()
-                while pygame.mixer.music.get_busy():
-                    pygame.time.wait(500)
-                    screen.blit(open, (0, 0))
-                    pygame.display.flip()
-                    pygame.time.wait(500)
-                    screen.blit(m1, (0, 0))
-                    pygame.display.flip()
+                while not "Jake Paul" in ai.text:
+                    ai.listen()
+                holiday.join()
+                lights.Turnoff()
+                screen.blit(m1, (0, 0))
+
 
                 
                 

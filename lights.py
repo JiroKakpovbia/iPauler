@@ -73,6 +73,19 @@ def disco():
 
             sleep(0.5)
 
+def holiday():
+
+    while True:
+
+        GPIO.output(greenPin,GPIO.HIGH)
+        GPIO.output(redPin,GPIO.LOW)
+        GPIO.output(bluePin,GPIO.LOW)
+        sleep(3)
+        GPIO.output(greenPin,GPIO.LOW)
+        GPIO.output(redPin,GPIO.HIGH)
+        GPIO.output(bluePin,GPIO.LOW)
+        sleep(3)
+
 
 
 
