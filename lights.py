@@ -46,6 +46,7 @@ def yellow():
     GPIO.output(redPin,GPIO.LOW)
     GPIO.output(greenPin,GPIO.HIGH)
     GPIO.output(bluePin,GPIO.HIGH)
+def b
 
 def disco():
 

@@ -114,10 +114,10 @@ def respond(mood, input):
 
             res = "My current subscriber count is "+subs+" subscribers. Thank you to all my fans and please buy some new merch"
 
-        #elif "tweet" in input:
+        elif "tweet" in input:
 
-            #tweet = get_tweet.get_tweet()
-            #res = "I just tweeted this:"+tweet
+            tweet = get_tweet.get_tweet()
+            res = "I just tweeted this:"+tweet
 
 
         elif "holiday" in input:
