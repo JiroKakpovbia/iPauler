@@ -7,7 +7,7 @@ chunk = 1024
 sample_format = pyaudio.paInt16 
 channels = 2
 fs = 44100  
-seconds = 3
+seconds = 5
 filename = "input.wav"
 
 p = pyaudio.PyAudio() 

@@ -160,7 +160,7 @@ if __name__ == "__main__":
                 rainbow = threading.Thread(target=lights.disco)
                 rainbow.start()
                 p.play()
-                while not "stop" in ai.text:
+                while not "Jake Paul" in ai.text:
                     ai.listen()
                 p.join()
                 rainbow.stop()
