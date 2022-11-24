@@ -9,7 +9,7 @@ from functions import getweather as getweather
 from functions import getlocation as getlocation
 import threading
 import Basic_Tic_Tac_Toe
-#import get_tweet
+import get_tweet
 from socialblade import YouTubeChannel
 
 id = YouTubeChannel('UCcgVECVN4OKV6DH1jLkqmcA')
