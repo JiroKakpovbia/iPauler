@@ -115,6 +115,7 @@ class ChatBot():
                     screen.blit(globals().get(i['value']), (0, 0))
                     pygame.display.update()
             f.close()
+            time.sleep(1)
 
         else:
             print("off")
@@ -220,7 +221,7 @@ if __name__ == "__main__":
                 loading.join()
 
                 lights.turnOff()
-                ai.text_to_speech(("I just tweeted this:"+tweet), False)
+                ai.text_to_speech(("I just tweeted this:"+tweet), True)
 
 
                 
