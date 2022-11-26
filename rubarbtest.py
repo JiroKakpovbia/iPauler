@@ -40,11 +40,11 @@ while pygame.mixer.music.get_busy():
     
     for i in timing['mouthCues']:
         
-        
+        secs = time.time()
         while secs < i['start']:
             secs = time.time()
             screen.blit(globals().get(i['value']), (0, 0))
-            pygame.display.flip()
+            pygame.display.update()
 
 f.close()
 end = time.time()
