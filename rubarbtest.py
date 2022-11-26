@@ -3,12 +3,13 @@ import os
 import subprocess
 import time
 import json
+#subprocess.call(crop, shell=True)
 
 pygame.init()
 pygame.mixer.init()
 
 result = pygame.mixer.music.load("meme.mp3")
-subprocess.run(["sudo Rhubarb-Lip-Sync-1.13.0-Linux/rhubarb -o output.json -f --json-r --pocketSphinx meme.mp3"])
+subprocess.run(['sudo Rhubarb-Lip-Sync-1.13.0-Linux/rhubarb -o output.json -f --json-r --pocketSphinx meme.mp3'])
 
 
 f = open('output.json')
