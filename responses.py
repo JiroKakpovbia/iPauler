@@ -115,7 +115,7 @@ def respond(mood, input):
 
             res = "My current subscriber count is "+subs+" subscribers. Thank you to all my fans and please buy some new merch"
         elif "integral" in input:
-            res = "My current subscriber count is 2400000."
+            res = "My current subscriber count is 20400000."
 
         elif "tweet" in input:
 
