@@ -39,13 +39,14 @@ timing = json.load(f)
 start = time.time()
 music = threading.Thread(target=pygame.mixer.music.play())
 music.start()
-for i in timing['mouthCues']:
-        
-    secs = time.time()
-    while secs < i['start']:
+while pygame.mixer.get_busy:
+    for i in timing['mouthCues']:
+            
         secs = time.time()
-        screen.blit(globals().get(i['value']), (0, 0))
-        pygame.display.update()
+        while secs < i['start']:
+            secs = time.time()
+            screen.blit(globals().get(i['value']), (0, 0))
+            pygame.display.update()
 music.join()
 
 f.close()
