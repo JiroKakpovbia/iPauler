@@ -32,7 +32,9 @@ import lights
 
 p = vlc.MediaPlayer("everydaybro.mp4/")
 p.set_position(0)
-
+fire = vlc.MediaPlayer("videoplayback.mp4/")
+fire.set_scale(0.5)
+fire.set_position(0)
 access_key = "KrtyFBDP3S9uW20iiBF0l0QarTeLnJx7hIgT8noopQrXFfqTOCrhTg=="
 #keyword_paths = ['/wakeword']
 #handle = pvporcupine.create(access_key=access_key, keyword_paths=keyword_paths)
@@ -207,6 +209,7 @@ if __name__ == "__main__":
                 holiday = threading.Thread(target=lights.holiday)
                 holiday.start()
                 pygame.mixer.music.play()
+                fire.play()
                 while not "Jake Paul" in ai.text:
                     ai.listen()
                 holiday.join()
