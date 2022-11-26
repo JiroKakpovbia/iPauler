@@ -89,11 +89,11 @@ class ChatBot():
             filename = filename.replace(" ", "_")
 
             try: 
-                f = open('LipSync/%s.json' % filename)
+                f = open('LipSync/%d.json' % int(filename))
             except:
                 lights.green()
-                os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" % filename)
-                f = open('LipSync/%s.json' % filename)
+                os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%d.json -f json -r pocketSphinx res.wav" % int(filename))
+                f = open('LipSync/%d.json' % int(filename))
 
             timing = json.load(f)
 
@@ -212,8 +212,8 @@ if __name__ == "__main__":
                 loading = threading.Thread(target=lights.loading)
                 loading.start()
                 tweet = get_tweet.get_tweet()
-                loading.stop()
-                loading.join()
+                loading.deamon()
+
                 lights.turnOff()
                 ai.text_to_speech(("I just tweeted this:"+tweet), False)
 
