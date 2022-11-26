@@ -86,14 +86,17 @@ class ChatBot():
         if lipsync:
             filename  = textwrap.shorten(text, width=30)
             filename = filename.replace("'", "")
+            filename = filename.replace(",", "")
+            filename = filename.replace("*", "")
+            filename = filename.replace(".", "")
             filename = filename.replace(" ", "_")
 
             try: 
-                f = open('LipSync/%d.json' % int(filename))
+                f = open('LipSync/%s.json' % filename)
             except:
                 lights.green()
-                os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%d.json -f json -r pocketSphinx res.wav" % int(filename))
-                f = open('LipSync/%d.json' % int(filename))
+                os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" % filename)
+                f = open('LipSync/%s.json' % filename)
 
             timing = json.load(f)
 
