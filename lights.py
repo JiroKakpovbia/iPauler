@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 import numpy as np
 
+import threading
 GPIO.setwarnings(False)
 
 GPIO.setmode(GPIO.BOARD)  
@@ -90,7 +91,7 @@ def holiday():
 
 def loading(kill):
 
-    while not kill.wait(1):
+    while not kill.is_set:
 
         green()
         sleep(2)
