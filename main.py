@@ -84,6 +84,7 @@ class ChatBot():
         sound.export("res.wav", format="wav")
 
         if lipsync:
+
             filename  = textwrap.shorten(text, width=30)
             filename = filename.replace("'", "")
             filename = filename.replace(",", "")
@@ -119,13 +120,13 @@ class ChatBot():
 
         if not lipsync:
             print("off")
-            while pygame.mixer.get_busy():
-                screen.blit(A, (0, 0))
-                pygame.display.flip()
-                time.sleep(0.25)
-                screen.blit(D, (0, 0))
-                pygame.display.flip()
-                time.sleep(0.25)
+        while pygame.mixer.music.get_busy():
+            pygame.time.wait(500)
+            screen.blit(A, (0, 0))
+            pygame.display.flip()
+            pygame.time.wait(500)
+            screen.blit(D, (0, 0))
+            pygame.display.flip()
 
         lights.turnOff()
         screen.blit(m1, (0, 0))
@@ -221,7 +222,7 @@ if __name__ == "__main__":
                 loading.join()
 
                 lights.turnOff()
-                ai.text_to_speech(("I just tweeted this:"+tweet), True)
+                ai.text_to_speech(("I just tweeted this:"+tweet), False)
 
 
                 
