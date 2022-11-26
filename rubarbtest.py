@@ -35,7 +35,9 @@ f = open('output.json')
 timing = json.load(f)
   
   
-
+for i in timing['mouthCues']:
+    screen.blit(globals().get(i['value']), (0, 0))
+    sleep(1 - tyme() % 0.25)
 
 pygame.mixer.music.play()
 start = time.time()
@@ -43,7 +45,7 @@ start = time.time()
 while pygame.mixer.music.get_busy():
     
     for i in timing['mouthCues']:
-        screen.blit(X, (0, 0))
+        screen.blit(globals().get(i['value']), (0, 0))
         sleep(1 - tyme() % 0.25)
 
 f.close()
