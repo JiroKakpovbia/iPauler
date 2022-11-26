@@ -85,7 +85,7 @@ class ChatBot():
         try: 
             f = open('%s.json' % text)
         except:
-            os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" & text)
+            os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" % text)
         f = open('output.json')
         timing = json.load(f)
 
