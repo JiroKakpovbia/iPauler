@@ -88,10 +88,11 @@ class ChatBot():
         filename  = textwrap.shorten(filename, width=20)
 
         try: 
-            f = open('%s.json' % filename)
+            f = open('LipSync/%s.json' % filename)
         except:
             os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" % filename)
-        f = open('output.json')
+            f = open('LipSync/%s.json' % filename)
+
         timing = json.load(f)
 
         result = pygame.mixer.music.load("res.wav")
