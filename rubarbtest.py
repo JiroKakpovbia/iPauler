@@ -10,7 +10,7 @@ pygame.mixer.init()
 
 result = pygame.mixer.music.load("meme.mp3")
 
-p = subprocess.Popen(['./rhubarb -o output.json -f json-r pocketSphinx meme.wav'], cwd='/home/se101/rhubarb-lip-sync')
+p = subprocess.Popen(['rhubarb -o output.json -f json-r pocketSphinx meme.wav'], cwd='/home/se101/rhubarb-lip-sync')
 
 
 f = open('output.json')
