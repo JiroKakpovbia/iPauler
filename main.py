@@ -22,6 +22,7 @@ import recording
 import responses
 
 import pygame
+import textwrap
 
 import pvporcupine
 
@@ -82,10 +83,14 @@ class ChatBot():
         sound = AudioSegment.from_mp3("res.mp3")
         sound.export("res.wav", format="wav")
 
+        filename = text.replace("'", "")
+        filename = filename.replace(" ", "_")
+        filename  = textwrap.shorten(filename, width=20)
+
         try: 
-            f = open('%s.json' % text)
+            f = open('%s.json' % filename)
         except:
-            os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" % text)
+            os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" % filename)
         f = open('output.json')
         timing = json.load(f)
 
