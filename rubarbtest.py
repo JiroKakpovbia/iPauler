@@ -40,12 +40,14 @@ start = time.time()
 music = threading.Thread(target=pygame.mixer.music.play())
 music.start()
 while pygame.mixer.get_busy:
+    secs = time.time()
+    print(secs)
     for i in timing['mouthCues']:
             
-        secs = time.time()
+        
         while secs < i['start']:
             secs = time.time()
-            print(secs)
+            
             screen.blit(globals().get(i['value']), (0, 0))
             pygame.display.update()
 music.join()
