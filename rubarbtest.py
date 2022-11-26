@@ -11,7 +11,7 @@ pygame.mixer.init()
 result = pygame.mixer.music.load("meme.mp3")
 
 
-os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb --o output.json -f json-r pocketSphinx meme.wav")
+os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o output.json -f json -r pocketSphinx meme.wav")
 
 f = open('output.json')
   
