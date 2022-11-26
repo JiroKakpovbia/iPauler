@@ -28,6 +28,7 @@ H = pygame.image.load("mouth/H.png").convert()
 X = pygame.image.load("mouth/X.png").convert()
 
 screen.blit(A, (0, 0))
+pygame.display.flip()
 
 #os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o output.json -f json -r pocketSphinx meme.wav")
 
