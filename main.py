@@ -82,7 +82,10 @@ class ChatBot():
         sound = AudioSegment.from_mp3("res.mp3")
         sound.export("res.wav", format="wav")
 
-        os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o output.json -f json -r pocketSphinx res.wav")
+        try: 
+            f = open(text+'.json')
+        except:
+            os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/"+text+".json -f json -r pocketSphinx res.wav")
         f = open('output.json')
         timing = json.load(f)
 
@@ -92,19 +95,18 @@ class ChatBot():
 
         secs = time.time()
         beg = secs
-        while pygame.mixer.get_busy:
-            for i in timing['mouthCues']:
-                while secs -beg < i['start']:
-                    secs = time.time()
-                    screen.blit(globals().get(i['value']), (0, 0))
-                    pygame.display.update()
+
+        for i in timing['mouthCues']:
+            while secs -beg < i['start']:
+                secs = time.time()
+                screen.blit(globals().get(i['value']), (0, 0))
+                pygame.display.update()
         f.close()
 
         lights.turnOff()
         screen.blit(m1, (0, 0))
         pygame.mixer.music.unload()
         os.remove("res.wav")
-        os.remove("output.json")
 
     @staticmethod
     def action_time():
