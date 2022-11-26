@@ -88,6 +88,16 @@ def holiday():
         sleep(3)
 
 
+def loading():
+
+    while True:
+
+        green()
+        sleep(2)
+        turnOff()
+        sleep(2)
+
+
 
 
 

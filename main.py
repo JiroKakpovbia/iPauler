@@ -82,10 +82,11 @@ class ChatBot():
         duration = mbytes / 200
         sound = AudioSegment.from_mp3("res.mp3")
         sound.export("res.wav", format="wav")
+
         if lipsync:
-            filename = text.replace("'", "")
+            filename  = textwrap.shorten(text, width=30)
+            filename = filename.replace("'", "")
             filename = filename.replace(" ", "_")
-            filename  = textwrap.shorten(filename, width=20)
 
             try: 
                 f = open('LipSync/%s.json' % filename)
@@ -113,6 +114,7 @@ class ChatBot():
             f.close()
 
         else:
+            print("off")
             while pygame.mixer.get_busy():
                 screen.blit(A, (0, 0))
                 pygame.display.flip()
@@ -207,8 +209,12 @@ if __name__ == "__main__":
                 screen.blit(m1, (0, 0))
 
             elif result == 3:
+                loading = threading.Thread(target=lights.loading)
+                loading.start()
                 tweet = get_tweet.get_tweet()
-                ai.text_to_speech("I just tweeted this:"+tweet, False)
+                loading.join()
+                lights.turnOff()
+                ai.text_to_speech(("I just tweeted this:"+tweet), False)
 
 
                 
