@@ -83,9 +83,9 @@ class ChatBot():
         sound.export("res.wav", format="wav")
 
         try: 
-            f = open(text+'.json')
+            f = open('%s.json' % text)
         except:
-            os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/"+text+".json -f json -r pocketSphinx res.wav")
+            os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" & text)
         f = open('output.json')
         timing = json.load(f)
 
