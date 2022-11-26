@@ -38,7 +38,8 @@ timing = json.load(f)
   
   
 for i in timing['mouthCues']:
-    screen.blit(A, (0, 0))
+    screen.blit(globals().get(i['value']), (0, 0))
+    pygame.display.update()
     sleep(1 - tyme() % 0.25)
 
 pygame.mixer.music.play()
