@@ -18,7 +18,7 @@ f = open('output.json')
 timing = json.load(f)
   
 for i in timing['mouthCues']:
-    print(i.start)
+    print(i['start'])
   
 f.close()
 
