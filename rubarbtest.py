@@ -38,7 +38,7 @@ pygame.mixer.music.play()
 start = time.time()
 
 while pygame.mixer.music.get_busy():
-    print(start+'\n')
+    print(start+"\n")
     for i in timing['mouthCues']:
         while i['start'] < start:
             pass
