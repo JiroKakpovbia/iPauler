@@ -212,9 +212,11 @@ if __name__ == "__main__":
                 screen.blit(m1, (0, 0))
 
             elif result == 3:
-                loading = threading.Thread(target=lights.loading)
+                kill = threading.Event()
+                loading = threading.Thread(target=lights.loading args=(kill))
                 loading.start()
                 tweet = get_tweet.get_tweet()
+                kill.set()
                 loading.join()
 
                 lights.turnOff()

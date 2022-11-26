@@ -88,9 +88,9 @@ def holiday():
         sleep(3)
 
 
-def loading():
+def loading(kill):
 
-    while True:
+    while not kill:
 
         green()
         sleep(2)
