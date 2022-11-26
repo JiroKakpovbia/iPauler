@@ -5,6 +5,7 @@ import time
 from time import time as tyme, sleep
 import json
 from threading import Timer
+import threading
 #subprocess.call(crop, shell=True)
 
 pygame.init()
@@ -17,6 +18,7 @@ Y = 320
 screen = pygame.display.set_mode((X, Y))
 
 result = pygame.mixer.music.load("meme.mp3")
+
 A = pygame.image.load("mouth/A.png").convert()
 B = pygame.image.load("mouth/B.png").convert()
 C = pygame.image.load("mouth/C.png").convert()
@@ -35,7 +37,8 @@ f = open('output.json')
 timing = json.load(f)
 
 start = time.time()
-pygame.mixer.music.play()
+music = threading.Thread(target=pygame.mixer.music.play())
+music.start()
 for i in timing['mouthCues']:
         
     secs = time.time()
@@ -43,6 +46,7 @@ for i in timing['mouthCues']:
         secs = time.time()
         screen.blit(globals().get(i['value']), (0, 0))
         pygame.display.update()
+music.join()
 
 f.close()
 end = time.time()
