@@ -36,9 +36,9 @@ timing = json.load(f)
 
 pygame.mixer.music.play()
 start = time.time()
-value = 0
-while pygame.mixer.music.get_busy():
 
+while pygame.mixer.music.get_busy():
+    print(start)
     for i in timing['mouthCues']:
         while i['start'] < start:
             pass
@@ -48,4 +48,4 @@ while pygame.mixer.music.get_busy():
 f.close()
 end = time.time()
 pygame.mixer.music.unload()
-os.remove("output.json")
+#os.remove("output.json")
