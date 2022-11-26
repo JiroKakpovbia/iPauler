@@ -1,7 +1,8 @@
 import pygame
 import os
 import subprocess
-from time import time, sleep
+import time
+from time import time as tyme, sleep
 import json
 from threading import Timer
 #subprocess.call(crop, shell=True)
@@ -43,7 +44,7 @@ while pygame.mixer.music.get_busy():
     
     for i in timing['mouthCues']:
         screen.blit(exec(i['value']), (0, 0))
-        sleep(1 - time() % 0.25)
+        sleep(1 - tyme() % 0.25)
 
 f.close()
 end = time.time()
