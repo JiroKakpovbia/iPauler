@@ -90,6 +90,7 @@ class ChatBot():
             try: 
                 f = open('LipSync/%s.json' % filename)
             except:
+                lights.green()
                 os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" % filename)
                 f = open('LipSync/%s.json' % filename)
 
