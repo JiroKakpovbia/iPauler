@@ -35,8 +35,6 @@ pygame.display.flip()
 f = open('output.json')
   
 timing = json.load(f)
-  
-
 
 start = time.time()
 pygame.mixer.music.play()
@@ -46,7 +44,7 @@ while pygame.mixer.music.get_busy():
         secs = round(time.time() - start)
         while secs < i['start']:
             screen.blit(globals().get(i['value']), (0, 0))
-            pygame.display.update()
+            pygame.display.flip()
 
 f.close()
 end = time.time()
