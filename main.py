@@ -117,7 +117,7 @@ class ChatBot():
             f.close()
             time.sleep(1)
 
-        else:
+        if not lipsync:
             print("off")
             while pygame.mixer.get_busy():
                 screen.blit(A, (0, 0))
