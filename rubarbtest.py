@@ -9,7 +9,7 @@ pygame.init()
 pygame.mixer.init()
 
 result = pygame.mixer.music.load("meme.mp3")
-subprocess.run(['/home/se101/rhubarb-lip-sync/rhubarb -o output.json -f json-r pocketSphinx meme.wav'])
+subprocess.run(["/home/se101/rhubarb-lip-sync/rhubarb -o output.json -f json-r pocketSphinx meme.wav"])
 
 
 f = open('output.json')
