@@ -75,11 +75,11 @@ class ChatBot():
     def text_to_speech(text):
         print("Jake Paul --> ", text)
         speaker = gTTS(text=text, lang="en", slow=False)
-        speaker.save("res.wav")
-        statbuf = os.stat("res.wav")
+        speaker.save("res.mp3")
+        statbuf = os.stat("res.mp3")
         mbytes = statbuf.st_size / 1024
         duration = mbytes / 200
-        result = pygame.mixer.music.load("res.wav")
+        result = pygame.mixer.music.load("res.mp3")
         pygame.mixer.music.play()
         lights.purple()
         while pygame.mixer.music.get_busy():
@@ -92,7 +92,7 @@ class ChatBot():
         lights.turnOff()
         screen.blit(m1, (0, 0))
         pygame.mixer.music.unload()
-        os.remove("res.wav")
+        os.remove("res.mp3")
 
     @staticmethod
     def action_time():
