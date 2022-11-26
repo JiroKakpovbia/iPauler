@@ -13,7 +13,7 @@ from playsound import playsound
 
 import threading
 import time
-
+import get_tweet
 # for data
 import datetime
 import numpy as np
@@ -73,7 +73,7 @@ class ChatBot():
 
 
     @staticmethod
-    def text_to_speech(text):
+    def text_to_speech(text, lipsync):
         print("Jake Paul --> ", text)
         speaker = gTTS(text=text, lang="en", slow=False)
         speaker.save("res.mp3")
@@ -82,32 +82,43 @@ class ChatBot():
         duration = mbytes / 200
         sound = AudioSegment.from_mp3("res.mp3")
         sound.export("res.wav", format="wav")
+        if lipsync:
+            filename = text.replace("'", "")
+            filename = filename.replace(" ", "_")
+            filename  = textwrap.shorten(filename, width=20)
 
-        filename = text.replace("'", "")
-        filename = filename.replace(" ", "_")
-        filename  = textwrap.shorten(filename, width=20)
+            try: 
+                f = open('LipSync/%s.json' % filename)
+            except:
+                os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" % filename)
+                f = open('LipSync/%s.json' % filename)
 
-        try: 
-            f = open('LipSync/%s.json' % filename)
-        except:
-            os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o LipSync/%s.json -f json -r pocketSphinx res.wav" % filename)
-            f = open('LipSync/%s.json' % filename)
-
-        timing = json.load(f)
+            timing = json.load(f)
 
         result = pygame.mixer.music.load("res.wav")
         lights.purple()
         pygame.mixer.music.play()
 
-        secs = time.time()
-        beg = secs
+        if lipsync:
 
-        for i in timing['mouthCues']:
-            while secs -beg < i['start']:
-                secs = time.time()
-                screen.blit(globals().get(i['value']), (0, 0))
-                pygame.display.update()
-        f.close()
+            secs = time.time()
+            beg = secs
+
+            for i in timing['mouthCues']:
+                while secs -beg < i['start']:
+                    secs = time.time()
+                    screen.blit(globals().get(i['value']), (0, 0))
+                    pygame.display.update()
+            f.close()
+
+        else:
+            while pygame.mixer.get_busy():
+                screen.blit(A, (0, 0))
+                pygame.display.flip()
+                time.sleep(0.25)
+                screen.blit(D, (0, 0))
+                pygame.display.flip()
+                time.sleep(0.25)
 
         lights.turnOff()
         screen.blit(m1, (0, 0))
@@ -168,7 +179,7 @@ if __name__ == "__main__":
             result = responses.respond(ai.mood, ai.text)
             os.remove("input.wav")
             if result == 0:
-                ai.text_to_speech(np.random.choice(["Tata","Have a good day","Bye","Goodbye","Hope to meet soon","peace out!"]))
+                ai.text_to_speech(np.random.choice(["Tata","Have a good day","Bye","Goodbye","Hope to meet soon","peace out!"]), True)
                 ex = False
                 break
                   
@@ -194,10 +205,14 @@ if __name__ == "__main__":
                 lights.Turnoff()
                 screen.blit(m1, (0, 0))
 
+            elif result == 3:
+                tweet = get_tweet.get_tweet()
+                ai.text_to_speech("I just tweeted this:"+tweet, False)
+
 
                 
                 
-            else: ai.text_to_speech(result)
+            else: ai.text_to_speech(result, True)
             
         else: 
             pygame.display.update()
