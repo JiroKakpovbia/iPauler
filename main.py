@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import pyttsx3
 import os
+import subprocess
 
 import vlc
 # for text-to-speech
@@ -68,34 +69,24 @@ class ChatBot():
         except:
             self.text="ERROR"
 
-    def get_next_audio_frame(self):
-        pass
 
-    def wakeword(self):
-        ppn = pvporcupine.create(access_key=access_key, keywords=['alexa', 'jarvis'])
-        keyword_index = ppn.process(get_next_audio_frame())
-        if keyword_index >= 0:
-            ai.awake = True
-        recorder = PvRecorder(device_index=-1)
-        recorder.start()
-
-        pcm = recorder.read()
-        ppn.process(pcm)
 
     @staticmethod
     def text_to_speech(text):
         print("Jake Paul --> ", text)
         speaker = gTTS(text=text, lang="en", slow=False)
-
         speaker.save("res.mp3")
+        subprocess.run(["rhubarb -o output.json -f --json-r --pocketSphinx res.mp3"])
         statbuf = os.stat("res.mp3")
         mbytes = statbuf.st_size / 1024
         duration = mbytes / 200
         result = pygame.mixer.music.load("res.mp3")
         pygame.mixer.music.play()
-        open = pygame.image.load("mouth/m4.png").convert()
-        closed = pygame.image.load("mouth/m2.png").convert()
         lights.purple()
+        start = time.time()
+        print("hello")
+        end = time.time()
+        print(end - start)
         while pygame.mixer.music.get_busy():
             pygame.time.wait(500)
             screen.blit(open, (0, 0))
