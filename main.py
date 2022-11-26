@@ -214,7 +214,7 @@ if __name__ == "__main__":
 
             elif result == 3:
                 kill = threading.Event()
-                loading = threading.Thread(target=lights.loading, args=(kill))
+                loading = threading.Thread(target=lights.loading, args=(kill,))
                 loading.start()
                 tweet = get_tweet.get_tweet()
                 kill.set()

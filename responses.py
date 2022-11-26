@@ -114,6 +114,8 @@ def respond(mood, input):
             subs = id.get_subscriber_count()
 
             res = "My current subscriber count is "+subs+" subscribers. Thank you to all my fans and please buy some new merch"
+        elif "integral" in input:
+            res = "My current subscriber count is 2400000."
 
         elif "tweet" in input:
 
