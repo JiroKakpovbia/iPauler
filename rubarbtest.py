@@ -25,7 +25,7 @@ G = pygame.image.load("mouth/G.png").convert()
 H = pygame.image.load("mouth/H.png").convert()
 X = pygame.image.load("mouth/X.png").convert()
 
-os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o output.json -f json -r pocketSphinx meme.wav")
+#os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o output.json -f json -r pocketSphinx meme.wav")
 
 f = open('output.json')
   
@@ -38,7 +38,7 @@ pygame.mixer.music.play()
 start = time.time()
 
 while pygame.mixer.music.get_busy():
-    print(start)
+    print(start+'\n')
     for i in timing['mouthCues']:
         while i['start'] < start:
             pass
