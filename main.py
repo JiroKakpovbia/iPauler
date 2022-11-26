@@ -17,7 +17,7 @@ import time
 # for data
 import datetime
 import numpy as np
-
+import json
 import recording
 import responses
 
@@ -26,7 +26,7 @@ import pygame
 import pvporcupine
 
 from pvrecorder import PvRecorder
-
+from pydub import AudioSegment
 import lights
 
 p = vlc.MediaPlayer("everydaybro.mp4/")
@@ -79,20 +79,30 @@ class ChatBot():
         statbuf = os.stat("res.mp3")
         mbytes = statbuf.st_size / 1024
         duration = mbytes / 200
-        result = pygame.mixer.music.load("res.mp3")
-        pygame.mixer.music.play()
+        sound = AudioSegment.from_mp3("res.mp3")
+        sound.export("res.wav", format="wav")
+
+        os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o output.json -f json -r pocketSphinx res.wav")
+        f = open('output.json')
+        timing = json.load(f)
+
+        result = pygame.mixer.music.load("res.wav")
         lights.purple()
-        while pygame.mixer.music.get_busy():
-            pygame.time.wait(500)
-            screen.blit(C, (0, 0))
-            pygame.display.flip()
-            pygame.time.wait(500)
-            screen.blit(A, (0, 0))
-            pygame.display.flip()
+        pygame.mixer.music.play()
+
+        secs = time.time()
+        beg = secs
+        while pygame.mixer.get_busy:
+            for i in timing['mouthCues']:
+                while secs -beg < i['start']:
+                    secs = time.time()
+                    screen.blit(globals().get(i['value']), (0, 0))
+        f.close()
+
         lights.turnOff()
         screen.blit(m1, (0, 0))
         pygame.mixer.music.unload()
-        os.remove("res.mp3")
+        os.remove("res.wav")
 
     @staticmethod
     def action_time():
