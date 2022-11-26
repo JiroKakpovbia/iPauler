@@ -212,6 +212,7 @@ if __name__ == "__main__":
                 loading = threading.Thread(target=lights.loading)
                 loading.start()
                 tweet = get_tweet.get_tweet()
+                loading.stop()
                 loading.join()
                 lights.turnOff()
                 ai.text_to_speech(("I just tweeted this:"+tweet), False)
