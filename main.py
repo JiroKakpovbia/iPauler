@@ -97,12 +97,14 @@ class ChatBot():
                 while secs -beg < i['start']:
                     secs = time.time()
                     screen.blit(globals().get(i['value']), (0, 0))
+                    pygame.display.update()
         f.close()
 
         lights.turnOff()
         screen.blit(m1, (0, 0))
         pygame.mixer.music.unload()
         os.remove("res.wav")
+        os.remove("output.json")
 
     @staticmethod
     def action_time():
