@@ -1,8 +1,9 @@
 import pygame
 import os
 import subprocess
-import time
+from time import time, sleep
 import json
+from threading import Timer
 #subprocess.call(crop, shell=True)
 
 pygame.init()
@@ -25,6 +26,7 @@ G = pygame.image.load("mouth/G.png").convert()
 H = pygame.image.load("mouth/H.png").convert()
 X = pygame.image.load("mouth/X.png").convert()
 
+
 #os.system ("/home/se101/rhubarb-lip-sync/rhubarb/rhubarb -o output.json -f json -r pocketSphinx meme.wav")
 
 f = open('output.json')
@@ -38,13 +40,10 @@ pygame.mixer.music.play()
 start = time.time()
 
 while pygame.mixer.music.get_busy():
-    print(start)
-    print("/n")
+    
     for i in timing['mouthCues']:
-        while i['start'] < start:
-            pass
-        print(i['value'])
         screen.blit(exec(i['value']), (0, 0))
+        sleep(1 - time() % 0.25)
 
 f.close()
 end = time.time()
