@@ -1,1 +1,5 @@
-# iPauler is a Jake Paul robot created in order reduce global warming and improve society as a whole. Run main.py to talk to Jake. Works 70 percent of the time.
+# iPauler - AI Voice Assistant
+The iPauler is a Jake Paul robot created in order to reduce global warming and improve society as a whole. Run main.py to talk to Jake.
+
+# Documentation
+Our group's final report can be accessed [here](./docs/project_guidelines.pdf).
